@@ -23,7 +23,8 @@ const onSearchFormSubmit = async event => {
       const { data } = await pixabayApi.fetchPhotos();
   
       if (!data.hits.length) {
-        galleryListEl.innerHTML =''
+        galleryListEl.innerHTML ='';
+        loadMoreBtnEl.classList.add('is-hidden');
         Notify.failure('Sorry, there are no images matching your search query. Please try again.');
         return;
       }
@@ -33,7 +34,6 @@ const onSearchFormSubmit = async event => {
       console.log(err);
     }
 
-nn
 };
 
 const onLoadMoreBtnClick = async () => {
