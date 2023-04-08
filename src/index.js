@@ -11,14 +11,14 @@ const pixabayApi = new PixabayAPI();
 
 const onSearchFormSubmit = async event => {
     event.preventDefault();
-  
+
     const searchQuery = event.target.children.searchQuery.value.trim();
     if(!searchQuery){
         Notify.info('Write something')
         return;
     }
     pixabayApi.query = searchQuery;
-  
+    pixabayApi.page = 1;
     try {
       const { data } = await pixabayApi.fetchPhotos();
   
@@ -33,7 +33,7 @@ const onSearchFormSubmit = async event => {
       console.log(err);
     }
 
-
+nn
 };
 
 const onLoadMoreBtnClick = async () => {
